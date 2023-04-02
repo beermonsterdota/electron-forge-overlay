@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
-const config = require('./../config.json')
+const config = require(process.resourcesPath + '/config.json')
+// require('./../config.json')
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -20,7 +21,7 @@ const createWindow = () => {
   win.setVisibleOnAllWorkspaces(true)
   win.setMenuBarVisibility(false)
 
-  win.loadURL(config.url)
+  win.loadURL(config.url || configDev.url)
 }
 
 app.whenReady().then(() => {

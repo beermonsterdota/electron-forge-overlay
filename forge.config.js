@@ -1,5 +1,8 @@
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    asar: true,
+    extraResource: ['./config.json'],
+  },
   rebuildConfig: {},
   makers: [
     {
@@ -19,4 +22,5 @@ module.exports = {
       config: {},
     },
   ],
-};
+  plugins: [{ name: '@electron-forge/plugin-auto-unpack-natives', config: {} }],
+}
