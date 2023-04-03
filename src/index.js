@@ -15,13 +15,17 @@ const createWindow = () => {
     kiosk: true,
     x: 0,
     y: 0,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   })
   win.setIgnoreMouseEvents(true)
   win.setAlwaysOnTop(true, 'screen-saver')
   win.setVisibleOnAllWorkspaces(true)
   win.setMenuBarVisibility(false)
 
-  win.loadURL(config.url || configDev.url)
+  win.loadURL(config.url)
 }
 
 app.whenReady().then(() => {
