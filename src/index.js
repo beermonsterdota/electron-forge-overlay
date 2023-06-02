@@ -4,11 +4,12 @@ const config = require(process.resourcesPath + '/config.json')
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 2560,
-    height: 1440,
+    width: 1920,
+    height: 1080,
     transparent: true,
     frame: false,
     resizable: false,
+    zoomFactor: 1,
     alwaysOnTop: true,
     // fullscreen & kiosk - позволяют скрыть таскбар
     fullscreen: true,
@@ -27,7 +28,8 @@ const createWindow = () => {
 
   win.loadURL(config.url)
 }
-
+app.commandLine.appendSwitch('high-dpi-support', 1)
+app.commandLine.appendSwitch('force-device-scale-factor', 1)
 app.whenReady().then(() => {
   createWindow()
 })
