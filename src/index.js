@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron')
 const config = require(process.resourcesPath + '/config.json')
-// require('./../config.json')
+
+// const config = require('F:\\git\\electron-forge-overlay\\config.json')
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -8,6 +9,9 @@ const createWindow = () => {
     height: 1080,
     transparent: true,
     frame: false,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: false,
+    autoHideMenuBar: true,
     resizable: false,
     zoomFactor: 1,
     alwaysOnTop: true,
