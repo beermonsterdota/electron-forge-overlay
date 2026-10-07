@@ -39,7 +39,7 @@ const createWindow = () => {
       win.reload()
     }
 
-    if (event.name === '=') {
+    if (event.name === '=' && event.state === 'UP') {
       win.webContents.send('toggleTab')
     }
   })
