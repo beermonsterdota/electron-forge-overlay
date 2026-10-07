@@ -39,7 +39,7 @@ const createWindow = () => {
       win.reload()
     }
 
-    if (event.name === '=' && event.state === 'UP') {
+    if (event.name === 'EQUALS' && event.state === 'UP') {
       win.webContents.send('toggleTab')
     }
   })
@@ -48,4 +48,10 @@ app.commandLine.appendSwitch('high-dpi-support', 1)
 app.commandLine.appendSwitch('force-device-scale-factor', 1)
 app.whenReady().then(() => {
   createWindow()
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 })
