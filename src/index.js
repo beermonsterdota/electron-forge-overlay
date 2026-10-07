@@ -38,6 +38,10 @@ const createWindow = () => {
       console.log('refreshing overlay')
       win.reload()
     }
+
+    if (event.name === '=') {
+      win.webContents.send('toggleTab')
+    }
   })
 }
 app.commandLine.appendSwitch('high-dpi-support', 1)
